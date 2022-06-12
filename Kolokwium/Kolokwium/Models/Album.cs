@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Kolokwium.Models
 {
-    public class MyAlbum
+    public class Album
     {
         public int IdAlbum { get; set; }
         public string AlbumName { get; set; }
         public DateTime PublishDate { get; set; }
         public int IdMusicLabel { get; set; }
         public virtual ICollection<Track> Tracks { get; set; }
-        public MyMusicLabel MusicLabel { get; set; }
+        public MusicLabel MusicLabel { get; set; }
     }
 }

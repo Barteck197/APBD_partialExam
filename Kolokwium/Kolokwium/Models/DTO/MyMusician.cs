@@ -12,6 +12,6 @@ namespace Kolokwium.Models.DTO
         public string LastName { get; set; }
         public string NickName { get; set; }
 
-        //public ICollection<MyMusician_Track> MusicianTracks { get; set; }
+        public ICollection<MyMusician_Track> MusicianTracks { get; set; }
     }
 }

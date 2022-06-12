@@ -9,6 +9,6 @@ namespace Kolokwium.Models.DTO
     {
         public int IdMusicLabel { get; set; }
         public string Name { get; set; }
-//        public virtual ICollection<MyAlbum> Albums { get; set; }
+        public virtual ICollection<MyAlbum> MyAlbums { get; set; }
     }
 }

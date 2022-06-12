@@ -9,8 +9,8 @@ namespace Kolokwium.Models.DTO
     {
         public int IdTrack { get; set; }
         public int IdMusician { get; set; }
-     //   public virtual MyMusician Musician { get; set; }
-     //   public virtual MyTrack Track { get; set; }
+        public virtual MyMusician MyMusician { get; set; }
+        public virtual MyTrack MyTrack { get; set; }
 
     }
 }

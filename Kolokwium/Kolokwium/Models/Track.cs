@@ -11,7 +11,7 @@ namespace Kolokwium.Models
         public string TrackName { get; set; }
         public float Duration { get; set; }
         public int IdMusicAlbum { get; set; }
-        public virtual MyAlbum Album {set;get;}
+        public virtual Album Album {set;get;}
         public virtual ICollection<Musician_Track> MusicianTracks { get; set; }
     }
 }

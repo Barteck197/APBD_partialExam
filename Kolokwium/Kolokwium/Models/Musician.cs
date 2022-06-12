@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Kolokwium.Models
 {
-    public class MyMusician
+    public class Musician
     {
         public int IdMusician { get; set; }
         public string FirstName { get; set; }

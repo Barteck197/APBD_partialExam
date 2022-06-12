@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Kolokwium.Models.DTO;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,13 @@ namespace Kolokwium.Models
         {
         }
 
-        /*
-        public DbSet<Album> Albums { get; set; }
-        public DbSet<Musician> Musicians { get; set; }
-        public DbSet<Musician_Track> MusicianTracks { get; set; }
-        public DbSet<MusicLabel> MusicLabels { get; set; }
-        public DbSet<Track> Tracks { get; set; }
-        */
+        
+        public DbSet<MyAlbum> Albums { get; set; }
+        public DbSet<MyMusician> Musicians { get; set; }
+        public DbSet<MyMusician_Track> MusicianTracks { get; set; }
+        public DbSet<MyMusicLabel> MusicLabels { get; set; }
+        public DbSet<MyTrack> Tracks { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,7 +36,7 @@ namespace Kolokwium.Models
                m.Property(m => m.LastName).IsRequired().HasMaxLength(50);
                m.Property(m => m.NickName).HasMaxLength(20);
 
-               m.HasMany(m => m.MusicianTracks).WithOne(m => m.Musician).HasForeignKey(m => m.IdMusician);
+               m.HasMany(m => m.MusicianTracks).WithOne(m => m.MyMusician).HasForeignKey(m => m.IdMusician);
                
                m.HasData(
                    new MyMusician
@@ -112,8 +113,8 @@ namespace Kolokwium.Models
                 a.Property(a => a.PublishDate).IsRequired();
                 a.Property(a => a.IdMusicLabel);
 
-                a.HasMany(tr => tr.Tracks).WithOne(tr => tr.Album).HasForeignKey(tr => tr.IdMusicAlbum);
-                a.HasOne(m => m.MusicLabel).WithMany(a => a.Albums).HasForeignKey(m => m.IdMusicLabel);
+                a.HasMany(tr => tr.MyTracks).WithOne(tr => tr.MyAlbum).HasForeignKey(tr => tr.IdMusicAlbum);
+                a.HasOne(m => m.MyMusicLabel).WithMany(a => a.MyAlbums).HasForeignKey(m => m.IdMusicLabel);
 
                 a.HasData(
                     new MyAlbum

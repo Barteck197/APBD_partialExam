@@ -11,7 +11,7 @@ namespace Kolokwium.Models.DTO
         public string TrackName { get; set; }
         public float Duration { get; set; }
         public int IdMusicAlbum { get; set; }
-       // public virtual MyAlbum Album {set;get;}
-     //   public virtual ICollection<MyMusician_Track> MusicianTracks { get; set; }
+        public virtual MyAlbum MyAlbum {set;get;}
+        public virtual ICollection<MyMusician_Track> MyMusicianTracks { get; set; }
     }
 }
