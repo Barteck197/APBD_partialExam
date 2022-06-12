@@ -9,6 +9,6 @@ namespace Kolokwium.Services
 {
     public interface IDbService
     {
-        Task<IEnumerable<MyAlbum>> getAlbum(int idAlbum)
+        Task<IEnumerable<MyAlbum>> getAlbum(int idAlbum);
     }
 }

@@ -55,13 +55,13 @@ namespace Kolokwium.Models
                
            });
 
-            modelBuilder.Entity<Musician_Track>(mt =>
+            modelBuilder.Entity<MyMusician_Track>(mt =>
            {
                mt.HasKey(mt => mt.IdTrack);
                mt.HasKey(mt => mt.IdMusician);
 
-               mt.HasOne(m => m.Musician).WithMany(m => m.MusicianTracks).HasForeignKey(m => m.IdMusician);
-               mt.HasOne(t => t.Track).WithMany(t => t.MusicianTracks).HasForeignKey(t => t.IdTrack);
+               mt.HasOne(m => m.MyMusician).WithMany(m => m.MusicianTracks).HasForeignKey(m => m.IdMusician);
+               mt.HasOne(t => t.MyTrack).WithMany(t => t.MyMusicianTracks).HasForeignKey(t => t.IdTrack);
                
                mt.HasData(
                    new Musician_Track
@@ -77,15 +77,15 @@ namespace Kolokwium.Models
                
            });
 
-            modelBuilder.Entity<Track>(t =>
+            modelBuilder.Entity<MyTrack>(t =>
             {
                 t.HasKey(t => t.IdTrack);
                 t.Property(t => t.TrackName).IsRequired().HasMaxLength(20);
                 t.Property(t => t.Duration).IsRequired();
                 t.Property(t => t.IdMusicAlbum);
 
-                t.HasMany(tr => tr.MusicianTracks).WithOne(tr => tr.Track).HasForeignKey(tr => tr.IdTrack);
-                t.HasOne(a => a.Album).WithMany(a => a.Tracks).HasForeignKey(a => a.IdTrack);
+                t.HasMany(tr => tr.MyMusicianTracks).WithOne(tr => tr.MyTrack).HasForeignKey(tr => tr.IdTrack);
+                t.HasOne(a => a.MyAlbum).WithMany(a => a.MyTracks).HasForeignKey(a => a.IdTrack);
 
                 
                 t.HasData(
@@ -115,7 +115,7 @@ namespace Kolokwium.Models
 
                 a.HasMany(tr => tr.MyTracks).WithOne(tr => tr.MyAlbum).HasForeignKey(tr => tr.IdMusicAlbum);
                 a.HasOne(m => m.MyMusicLabel).WithMany(a => a.MyAlbums).HasForeignKey(m => m.IdMusicLabel);
-
+                
                 a.HasData(
                     new MyAlbum
                     {
